@@ -1,6 +1,13 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+	status: undefined,
+	winner: undefined,
+});
+</script>
 
-<template></template>
+<template>
+	<div class="result-message"></div>
+</template>
 
 <style scoped>
 .result-message {

@@ -1,6 +1,23 @@
-<script setup></script>
+<script setup>
+import { computed } from "vue";
 
-<template></template>
+const props = defineProps({
+	id: undefined,
+	isWinner: Boolean,
+	updateCell: undefined,
+	content: undefined,
+});
+
+const cellClassName = computed(
+	() => `cell ${props.isWinner ? "cell--winner" : ""}`
+);
+</script>
+
+<template>
+	<div :class="cellClassName" @click="updateCell(props.id)">
+		{{ content }}
+	</div>
+</template>
 
 <style scoped>
 .cell {

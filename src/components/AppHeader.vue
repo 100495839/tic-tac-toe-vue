@@ -1,6 +1,10 @@
 <script setup></script>
 
-<template></template>
+<template>
+	<header class="header">
+		<h1 class="header__title">Tic-Tac-Toe</h1>
+	</header>
+</template>
 
 <style scoped>
 .header {

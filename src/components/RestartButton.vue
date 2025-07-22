@@ -1,6 +1,13 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+	restart: undefined,
+	isGameOver: undefined,
+});
+</script>
 
-<template></template>
+<template>
+	<button class="restart-button">RESTART</button>
+</template>
 
 <style scoped>
 .restart-button {

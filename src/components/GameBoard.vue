@@ -1,6 +1,25 @@
-<script setup></script>
+<script setup>
+import GameBoardCell from "./GameBoardCell.vue";
 
-<template></template>
+const props = defineProps({
+	board: undefined,
+	updateCell: undefined,
+	winCells: undefined,
+});
+</script>
+
+<template>
+	<div class="board">
+		<GameBoardCell
+			v-for="(cell, index) in board"
+			:key="index"
+			:id="index"
+			:content="cell"
+			:update-cell="updateCell"
+			:is-winner="false"
+		/>
+	</div>
+</template>
 
 <style scoped>
 .board {

@@ -1,6 +1,15 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+	turn: undefined,
+});
+</script>
 
-<template></template>
+<template>
+	<div class="turn">
+		<span class="turn__X">X</span>
+		<span class="turn__O">O</span>
+	</div>
+</template>
 
 <style scoped>
 .turn {
