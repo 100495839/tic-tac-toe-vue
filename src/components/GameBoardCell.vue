@@ -2,10 +2,10 @@
 import { computed } from "vue";
 
 const props = defineProps({
-	id: undefined,
+	id: Number,
 	isWinner: Boolean,
-	updateCell: undefined,
-	content: undefined,
+	updateCell: Function,
+	content: [String, null],
 });
 
 const cellClassName = computed(
@@ -14,8 +14,8 @@ const cellClassName = computed(
 </script>
 
 <template>
-	<div :class="cellClassName" @click="updateCell(props.id)">
-		{{ content }}
+	<div :class="cellClassName" @click="props.updateCell(props.id)">
+		{{ props.content }}
 	</div>
 </template>
 

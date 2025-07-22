@@ -1,13 +1,24 @@
 <script setup>
+import { computed } from "vue";
+import { TURN_STATE } from "../constants/constants";
+
 const props = defineProps({
-	turn: undefined,
+	turn: String,
 });
+
+const MY_TURN_CLASS = "turn--my-turn";
+const classNameX = computed(
+	() => `turn__X ${props.turn === TURN_STATE.X ? MY_TURN_CLASS : ""}`
+);
+const classNameO = computed(
+	() => `turn__O ${props.turn === TURN_STATE.O ? MY_TURN_CLASS : ""}`
+);
 </script>
 
 <template>
 	<div class="turn">
-		<span class="turn__X">X</span>
-		<span class="turn__O">O</span>
+		<span :class="classNameX">X</span>
+		<span :class="classNameO">O</span>
 	</div>
 </template>
 

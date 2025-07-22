@@ -1,12 +1,14 @@
 <script setup>
 const props = defineProps({
-	restart: undefined,
-	isGameOver: undefined,
+	restart: Function,
+	isGameOver: Boolean,
 });
 </script>
 
 <template>
-	<button class="restart-button">RESTART</button>
+	<button class="restart-button" @click="props.restart()">
+		{{ props.isGameOver ? "PLAY AGAIN" : "RESTART" }}
+	</button>
 </template>
 
 <style scoped>

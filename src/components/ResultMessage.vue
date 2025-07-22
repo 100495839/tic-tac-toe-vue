@@ -1,12 +1,27 @@
 <script setup>
+import { GAME_RESULT } from "../constants/constants";
+
 const props = defineProps({
-	status: undefined,
-	winner: undefined,
+	status: String,
+	winner: [String, null],
 });
 </script>
 
 <template>
-	<div class="result-message"></div>
+	<div class="result-message">
+		<h2
+			v-if="props.status === GAME_RESULT.WIN"
+			class="result-message__title"
+		>
+			WINNER - <strong>{{ props.winner }}</strong>
+		</h2>
+		<h2
+			v-else-if="props.status === GAME_RESULT.TIE"
+			class="result-message__title"
+		>
+			TIE
+		</h2>
+	</div>
 </template>
 
 <style scoped>

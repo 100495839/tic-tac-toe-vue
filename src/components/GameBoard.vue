@@ -2,21 +2,21 @@
 import GameBoardCell from "./GameBoardCell.vue";
 
 const props = defineProps({
-	board: undefined,
-	updateCell: undefined,
-	winCells: undefined,
+	board: Array,
+	updateCell: Function,
+	winCells: Array,
 });
 </script>
 
 <template>
 	<div class="board">
 		<GameBoardCell
-			v-for="(cell, index) in board"
+			v-for="(cell, index) in props.board"
 			:key="index"
 			:id="index"
 			:content="cell"
-			:update-cell="updateCell"
-			:is-winner="false"
+			:update-cell="props.updateCell"
+			:is-winner="props.winCells.includes(index)"
 		/>
 	</div>
 </template>
